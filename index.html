@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Gym Membership Form</title>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet">
+    <link href="style.css" rel="stylesheet" type="text/css">
+    
+  </head>
+  <body>
+    <div class="testbox">
+      <form action="/" method="POST" name="gymform" onSubmit="return confirm('Do you want recheck your inputs?') ">>
+        <div class="banner">
+          <h1>Gym Membership Form</h1>
+        </div>
+        <p class="top-info ps">Complete this membership form to become a member of our Gym. After submitting This form we will contact you for give your gym schedule and membership card. </p>
+        <div class="item">
+          <p>Name<span class="required">*</span></p>
+          <div class="name-item">
+            <input type="text" name="name" placeholder="Full Name" required/>
+          </div>
+        </div>
+        <div class="question">
+          <p>Gender<span class="required">*</span></p>
+          <div class="question-answer">
+            <label><input type="radio" value="m" name="gender" required/> <span>Male</span></label>
+            <label><input type="radio" value="fe" name="gender" required/> <span>Female</span></label>
+          </div>
+        </div>
+        
+        <div class="item">
+          <p>Home Address<span class="required">*</span></p>
+          <input type="text" name="sta" placeholder="Street address" required/>
+          <div class="city-item">
+            <input type="text" name="city" placeholder="City" required/>
+            <input type="text" name="re" placeholder="Region" required/>
+            <input type="text" name="pc" placeholder="Postal / Zip code" required/>
+            <select>
+              <option value="">Country</option>
+              <option value="1">Sri Lanka</option>
+              <option value="2">India</option>
+              <option value="3">France</option>
+              <option value="4">Rusia</option>
+              <option value="5">USA</option>
+            </select>
+          </div>
+        </div>
+        <div class="item">
+          <p>Current weight (lbs)<span class="required">*</span></p>
+          <input type="text" name="cw" id="numloc"/>
+        </div>
+        <div class="item">
+          <p>Desired weight (lbs)<span class="required">*</span></p>
+          <input type="text" name="dw" required id="numloc"/>
+        </div>
+        <div class="item">
+          <p>Height<span class="required">*</span></p>
+          <input type="text" name="he" required id="numloc"/>
+        </div>
+        <div class="item">
+          <p>BMI<span class="required">*</span></p>
+          <input type="text" name="bmi" required id="numloc"/>
+        </div>
+        <div class="item">
+          <p>Email<span class="required">*</span></p>
+          <input type="text" name="email" placeholder="someone@company.com" required/>
+        </div>
+        <div class="item">
+          <p>Phone</p>
+          <input type="text" name="tel" id="tel"/>
+        </div>
+        <div class="question">
+          <p>Do you require a personal trainer?<span class="required">*</span></p>
+          <div class="question-answer">
+            <label><input type="radio" value="y" name="personal-trainer" required/> <span>Yes</span></label>
+            <label><input type="radio" value="n" name="personal-trainer" required/> <span>No</span></label>
+          </div>
+        </div>
+        <div class="question">
+          <p>Have you been in a Gym before?<span class="required">*</span></p>
+          <div class="question-answer">
+            <label><input type="radio" value="y" name="gym-before" required/> <span>Yes</span></label>
+            <label><input type="radio" value="n" name="gym-before" required/> <span>No</span></label>
+          </div>
+        </div>
+        <div class="question">
+          <p>Membership Type<span class="required">*</span></p>
+          <div class="question-answer">
+            <label><input type="radio" value="r" name="membership" required/> <span>Regular</span></label>
+            <label><input type="radio" value="p" name="membership" required/> <span>Pro</span></label>
+            <label><input type="radio" value="v" name="membership" required/> <span>VIP</span></label>
+          </div>
+        </div>
+          <div class="question">
+          <p>Training time (Check both, if you not a issue about time)<span class="required">*</span></p>
+          <div class="question-answer">
+            <label><input type="checkbox" value="812" name="gym-before" /> <span>12 pm to 8 pm weekdays</span></label>
+            <label><input type="Checkbox" value="128" name="gym-before" /> <span>8 am to 4 pm weekends</span></label>
+            <label><input type="Checkbox" value="1212" name="gym-before" /> <span>Public holidays</span></label>
+          </div>
+        </div>
+        <div class="btn-block">
+             <div class="question" >
+          <p class="s">I agree , this all entered data are True and correct as my knowledge.<span class="required">*</span></p>
+          <div class="question-answer">
+            <label><input type="checkbox" value="812" name="agree" required/> <span>Yes</span></label>
+            
+          </div>
+        </div>
+     
+            
+          <button type="submit" href="/" onclick="if(!this.form.agree.checked){alert('You must agree to the terms first.');return false}">Apply</button> <!-- when click submit button then validate last check box-->
+          <button type="reset" class="btnc" onclick="alert('All data you entered are cleared !')">Clear</button>
+        </div>
+      </form>
+    </div>
+      
+      <script>
+//phone number validation
+    function telno(txt)
+{
+  var tel = /^\d{10}$/;
+  if(txt.value.match(tel))
+  {
+      return true;
+  }
+  else
+  {
+     alert("Enter a valid Phone Number");
+     return false;
+    
+  }
+  }
+</script>
+<script>
+    //validate all numeric values are enters
+function validate(){
+var num=document.gymform.num.value;
+if (isNaN(num)){
+  document.getElementById("numloc").innerHTML="Enter Numeric value only";
+  return false;
+}else{
+  return true;
+  }
+}
+</script>
+  </body>
+</html>
